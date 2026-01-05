@@ -189,7 +189,6 @@ dateTodaySpan.style.fontSize = `${(spacer1Height * 35)/100}px`;
 
 //Important Functions//
 const checkMusic = async()=>{
-    let readyAudioCount = 0;
     const musics = [
         document.getElementById('bgm'),
         document.getElementById('click'),
@@ -199,15 +198,17 @@ const checkMusic = async()=>{
         document.getElementById('meow2')
     ]
 
-    musics.forEach(audio =>
-        audio.addEventListener('canplaythrough', ()=>{
-            readyAudioCount ++;
-
-            if(readyAudioCount === musics.length){
-                return true
-            }
-        }))
-    }
+    return Promise.all(
+        musics.map(audio => {
+            return new Promise(resolve => {
+                if (!audio) return resolve(); 
+                if (audio.readyState >= 3) {
+                    resolve();
+                } else {
+                    audio.addEventListener(
+                        'canplaythrough',() => resolve(),{ once: true }
+                    )}})}))
+                }
 
 
 
@@ -459,11 +460,11 @@ window.addEventListener('load', async ()=>{
 
     await checkLocalStorage();
     await checkMusic();
-    if (quotesFetched && (checkMusic === true)){
-        loadingScreen.style.pointerEvents = 'auto';
-        tapText.textContent = "Tap to Continue";
-        stateMachine(STATES.LOADING);
-    }
+    
+    loadingScreen.style.pointerEvents = 'auto';
+    tapText.textContent = "Tap to Continue";
+    stateMachine(STATES.LOADING);
+    
 })
 
 window.addEventListener('resize', ()=>location.reload());
