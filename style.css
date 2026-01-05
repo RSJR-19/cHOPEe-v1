@@ -199,7 +199,8 @@ main{
     position: absolute;
     align-self: center;
     justify-self: center;
-
+    text-align: center;
+    width: 100%;
     top: 80%;
 }
 
