@@ -228,7 +228,7 @@ const stateMachine = (currentState)=>{
         
         case STATES.COFFEE_EMPTY:
             setStatus(coffeeEmptyScreen);
-            dayTodaySpan.innerHTML = daysOfWeek[dayToday];
+            dayTodaySpan.innerHTML = dayToday;
             dateTodaySpan.innerHTML = dateToday;
             spinningLayer.style.display = 'none';
             hand.style.bottom = `${windowHeight}px`;
