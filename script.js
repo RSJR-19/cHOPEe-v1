@@ -144,27 +144,28 @@ const quoteStorage = localStorage.getItem('quoteStorage');
     try{
         const response = await fetch(quotesJSONLink);
         const data = await response.json();
+        
         localStorage.setItem('quoteStorage', JSON.stringify(data));
+        
+        const stored = JSON.parse(localStorage.getItem('quoteStorage'));
 
-        todayQuote = JSON.parse(quoteStorage)[totalDay];
+        todayQuote = stored[totalDay];
         filteredtodayQuote = [...todayQuote].filter(letter =>  /^[a-zA-Z]$/.test(letter));
+
+        quotesFetched = true;
 
         return
 
     }
     catch(error){    
         console.error(error)
-    }
 
-    if (quoteStorage){
-        todayQuote = JSON.parse(quoteStorage)[totalDay];
+        localStorage.setItem('quoteStorage', JSON.stringify(savedQuotes));
+        const stored = JSON.parse(localStorage.getItem('quoteStorage'));
+        todayQuote = stored[totalDay];
         filteredtodayQuote = [...todayQuote].filter(letter =>  /^[a-zA-Z]$/.test(letter));
 
         quotesFetched = true;
-    }
-        else{
-            localStorage.setItem('quoteStorage', JSON.stringify(savedQuotes));
-            checkLocalStorage();
     }
 }
 
@@ -425,14 +426,12 @@ const ZoomOut =()=>{
 //Event Listeners//
 
 window.addEventListener('load', async ()=>{
-    const tapText = document.getElementById('tapText');
-
+    
     loadingScreen.style.pointerEvents = 'none';
-    tapText.innerHTML = 'Loading...';
+    
     await checkLocalStorage();
     if (quotesFetched){
         loadingScreen.style.pointerEvents = 'auto';
-        tapText.innerHTML = 'Tap to Continue';
         stateMachine(STATES.LOADING);
     }
 })
