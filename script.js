@@ -274,6 +274,7 @@ const stateMachine = (currentState)=>{
             spinningLayer.style.animationPlayState = 'paused';
             quote.style.fontSize = `${(quoteContainer.clientHeight * 40)/100}%`
             revealQuoteScreen.style.display = "flex";
+            
             if (toReveal ? requestAnimationFrame(ZoomIn) : requestAnimationFrame(ZoomOut));    
     }
 }
