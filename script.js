@@ -388,7 +388,7 @@ const returnCupBack = () =>{
 const returnHand = ()=>{
     const handPosition = parseFloat(getComputedStyle(hand).bottom);
     
-    if (windowHeight <= handPosition){
+    if (windowHeight + ( windowHeight/2)<= handPosition){
         stateMachine(STATES.COFFEE_READY);
         spinningLayer.style.display = 'flex';
        cup.style.pointerEvents = 'auto';
@@ -499,3 +499,5 @@ cup.addEventListener('click', ()=>{
 
     }
 });
+
+//To God be the Highest Glory//
