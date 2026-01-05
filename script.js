@@ -188,6 +188,30 @@ dateTodaySpan.style.fontSize = `${(spacer1Height * 35)/100}px`;
 
 
 //Important Functions//
+const checkMusic = async()=>{
+    let readyAudioCount = 0;
+    const musics = [
+        document.getElementById('bgm'),
+        document.getElementById('click'),
+        document.getElementById('pour'),
+        document.getElementById('order'),
+        document.getElementById('meow1'),
+        document.getElementById('meow2')
+    ]
+
+    musics.forEach(audio =>
+        audio.addEventListener('canplaythrough', ()=>{
+            readyAudioCount ++;
+
+            if(readyAudioCount === musics.length){
+                return true
+            }
+        }))
+    }
+
+
+
+
 const setStatus = (status)=>{
     document.querySelectorAll('.screenState').forEach(stateScreen => stateScreen.style.display ="none");
     status.style.display = 'flex';
@@ -434,7 +458,8 @@ window.addEventListener('load', async ()=>{
     
 
     await checkLocalStorage();
-    if (quotesFetched){
+    await checkMusic();
+    if (quotesFetched && (checkMusic === true)){
         loadingScreen.style.pointerEvents = 'auto';
         tapText.textContent = "Tap to Continue";
         stateMachine(STATES.LOADING);
