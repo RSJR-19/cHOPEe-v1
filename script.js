@@ -198,17 +198,17 @@ const checkMusic = async()=>{
         document.getElementById('meow2')
     ]
 
-    return Promise.all(
-        musics.map(audio => {
-            return new Promise(resolve => {
-                if (!audio) return resolve(); 
-                if (audio.readyState >= 3) {
-                    resolve();
-                } else {
-                    audio.addEventListener(
-                        'canplaythrough',() => resolve(),{ once: true }
-                    )}})}))
-                }
+    const promises = musics.map(audio => new Promise(resolve => {
+        if (!audio) return resolve();
+        if (audio.readyState >= 3) return resolve();
+        const timer = setTimeout(() => resolve(), 3000); 
+        audio.addEventListener('canplaythrough', () => {
+            clearTimeout(timer);
+            resolve();
+        }, { once: true });
+    }));
+    return Promise.all(promises);
+}
 
 
 
