@@ -231,7 +231,7 @@ const stateMachine = (currentState)=>{
             dayTodaySpan.innerHTML = dayToday;
             dateTodaySpan.innerHTML = dateToday;
             spinningLayer.style.display = 'none';
-            hand.style.bottom = `${windowHeight}px`;
+            hand.style.bottom = `${windowHeight + (windowHeight/4)}px`;
             initialCupBot = parseFloat(getComputedStyle(cup).bottom);
 
             
@@ -274,7 +274,7 @@ const stateMachine = (currentState)=>{
             spinningLayer.style.animationPlayState = 'paused';
             quote.style.fontSize = `${(quoteContainer.clientHeight * 40)/100}%`
             revealQuoteScreen.style.display = "flex";
-            
+
             if (toReveal ? requestAnimationFrame(ZoomIn) : requestAnimationFrame(ZoomOut));    
     }
 }
