@@ -1,3 +1,5 @@
+
+  
 {
   "name": "cHOPEe",
   "short_name": "cHOPEe",
@@ -10,13 +12,8 @@
   "orientation": "portrait",
   "icons": [
     {
-      "src": "/logo.png",
+      "src": "logo.png",
       "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "/logoBNW.png",
-      "sizes": "512x512",
       "type": "image/png"
     }
   ]
