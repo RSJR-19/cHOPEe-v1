@@ -1,0 +1,495 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: monospace;
+    user-select: none;
+}
+
+html, body{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    
+}
+
+body {
+    min-height: 100dvh;
+    width: 100%;
+    overflow: hidden;
+    padding: 0;
+}
+main{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+
+#main{
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(135deg, whitesmoke, white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color:black;
+    position: relative;
+    
+}
+.top_spacer{
+    will-change: transform;
+    height: 10dvh;
+    width: 100%;
+    background: linear-gradient(#ab781895),linear-gradient(135deg, #f5f5f5, #ffffff);
+    position: absolute;
+    border-bottom: black 3px solid;
+    top: 0;
+    transform: translateY(-100%);
+    z-index: 22;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+    
+    transition: all 0.6s ease-in-out;
+}
+
+
+.top_spacer span{
+    margin: 0;
+    padding: 0;
+    
+}
+#day_today {
+    font-size: 30px;
+    font-weight: bold;
+}
+#date_today{
+    font-size: 50px;
+}
+
+.bot_spacer{
+    will-change: transform;
+    height: 10dvh;
+    transform: translateY(100%);
+    width: 100%;
+    background: linear-gradient(#ab781895),linear-gradient(135deg, #f5f5f5, #ffffff);
+    border-top: black 3px solid;
+    position: absolute;
+    bottom: 0;
+    z-index: 22;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.6s ease-in-out;
+}
+.tap-text{
+    color: white;
+    top:85%;
+    position: absolute;
+
+}
+#check{
+    position: absolute;
+    top: 90%;
+    opacity: 0;
+
+    transition: opacity 0.8 ease-in-out;
+}
+
+#check.reveal{
+    opacity: 1;
+
+
+}
+.stage{
+    background: linear-gradient(#ffa60095 80%);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hand-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+}
+
+/*Screen States */
+#loading{
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    flex-direction: column;
+    position: relative;
+}
+
+#coffee_empty{
+    height: 100%;
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
+#prep_coffee{
+    background: linear-gradient(#ffa60095, linear-gradient(135deg, #f5f5f5, #ffffff));
+    height: 100dvh;
+    width: 100%;
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+}
+
+#return_coffee{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 5;
+
+}
+
+
+#quote_reveal{
+    height: 100%;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 10;
+}
+
+/* logos */
+#logo{
+    height: 25%;
+    width: 75%;
+    background: url(/images/full-bnw.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    justify-content: center;
+
+}
+.tagline{
+    position: absolute;
+    align-self: center;
+    justify-self: center;
+
+    top: 80%;
+}
+
+.bot_spacer h1{
+    color: rgb(41, 40, 40);
+    align-self: center;
+    justify-self: center;
+}
+/* Prep Coffee Screen */
+.upper-prep{
+    height: 50dvh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+   
+}
+.lower-prep{
+    height: 50dvh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+#cup-prep{
+    position: relative;
+    top: 100%;
+    border-radius: 0 0 50% 50%;
+    background-color: white;
+    border: 5px solid black;
+    display: flex;
+    align-items: flex-start;
+
+    transition: top 0.2s ease-out;
+    
+}
+.prep-text{
+position: absolute;
+top: 110%;
+
+
+}
+.line{
+    width: 100%;
+    height: 5%;
+    background-color: orange;
+}
+.cup-handle-prep{
+    height: 60%;
+    width: 30%;
+    background-color: white;
+    position: absolute;
+    border-radius: 0 50% 50% 0;
+    left: 100%;
+    border: 5px black solid;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.cup-handle-inside{
+    height: 70%;
+    width: 80%;
+    border: 5px black solid;
+    background: linear-gradient(#ffa60095, #ffa60095),linear-gradient(135deg, #f5f5f5, #ffffff);
+    border-left: 0px black solid;
+    border-radius:  0 50% 50% 0;
+}
+#coffee-flow{
+    display: flex;
+    height: 100%;
+    width: 20%;
+    background-color: rgb(244, 198, 113);
+    transform: translateY(-100%);
+    background: linear-gradient(
+  120deg,rgb(139, 97, 19) 40%,rgb(162, 119, 39) 50%, rgb(139,97,19) 60%);
+
+background-size: 200% 200%;
+animation: flow 0.7s linear infinite;
+transition: transform 0.5s ease-out;
+}
+
+#letter-flow{
+    height: 100%;
+    width: 20%;
+    position: relative;
+    overflow: hidden;
+}
+
+.letter{
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    display: block;
+    pointer-events: none;
+    will-change: transform;
+}
+
+
+
+
+/* Objects */
+#cup{
+    background: url(images/Plate.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    aspect-ratio: 1/1;
+   
+    position: absolute;
+    border-radius: 50%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    will-change: transform;
+    
+}
+
+#cup_content{
+    background: url(/images/Empty_Cup.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 65%;
+    
+
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    isolation: isolate;
+    
+}
+
+#cup_content_display{
+    background: url(images/Filled_cup.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    
+    opacity: 1;
+    aspect-ratio: 1/1;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+    animation: stir 60s linear infinite;
+    backface-visibility: hidden;
+}
+
+
+.cup_handle{
+    background-color: whitesmoke;
+    border-top: 3px solid rgb(54, 54, 54);
+    border-right: 3px solid rgb(54, 54, 54);
+    border-bottom: 3px solid rgb(54, 54, 54);
+    border-radius: 0px 5px 5px 0px;
+    height: 10%;
+    width: 25%;
+    position: absolute;
+    left: 96%;
+    opacity: 1;
+    z-index: 1;
+}
+
+#quote_container{
+    height: 60%;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    line-height: 1.2;
+    overflow: hidden;
+   
+
+    z-index: 2;
+
+}
+
+#quote{
+    opacity: 0;
+    padding: 5%;
+    color: white;
+    width: 100%;
+    white-space: normal;
+    overflow-wrap: break-word;
+    line-height: 1.35;
+    z-index: 3;
+    transition: opacity 0.5s ease-in-out;
+    will-change: opacity;
+}
+
+
+#hand{
+    height:50%;
+    position: absolute;
+    z-index: 3;
+    border-radius: 0 0 50px 50px;
+    border: 5px solid rgb(54, 54, 54);
+    border-top: 0;
+    display: flex;
+    align-items: flex-end;
+    will-change: bottom;
+     background-color: hsl(0, 0%, 67%); /* SIX SEEVEEEEEEN */
+     overflow: hidden;
+}
+
+.paws{
+    height: 10dvh;
+    width: 100%;
+    border-radius: 0 0 50px 50px;
+    
+    display: flex;
+    overflow: hidden;
+}
+.finger{
+    height: 100%;
+    flex: 1;
+ 
+  
+}
+
+.paws.finger:nth-child(2){
+    border-left: 2px rgb(54, 54, 54) solid;
+    border-right: 2px rgb(54, 54, 54) solid;
+}
+
+
+/* Classlists */
+#cup.reveal{
+    transform: scale(250%);
+    
+}
+
+#quote.display{
+    opacity: 1;
+}
+.bot_spacer.show{
+    transform: translateY(0);
+}
+.top_spacer.show{
+    transform: translateY(0);
+}
+#coffee-flow.pour{
+    transform: translateY(0);
+}
+.letter.fall{
+    top: 100%;
+}
+#cup-prep.upward{
+    top: 0;
+}
+
+
+/* animations / Keyframes */
+@keyframes stir{
+    
+    to {
+        transform: rotate(360deg) scale(1.01);
+    }
+}
+
+@keyframes flow {
+  from {
+    background-position: 100% 100%;
+  }
+  to {
+    background-position: 0% 0%;
+  }
+}
+
+@keyframes letterFalling {
+    0%{
+        top: 0%;
+        transform: rotate(-360deg);
+    }
+    100%{
+        top: 100%;
+        transform: rotate(360deg);
+        
+    }
+
+    }
+
+
+
+
+
+

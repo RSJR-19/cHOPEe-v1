@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"> 
+    <meta name="apple-mobile-web-app-title" content="cHOPEe">
+    <link rel="apple-touch-icon" href="logo_icon.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="favicon.ico" >
+    <link rel="shortcut icon" href="favicon.ico">
+    <title>cHOPEe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <audio id="bgm" loop preload="auto">
+            <source src="cafe_bgm.mp3" type="audio/mpeg">
+        </audio>
+        <audio src="sounds/meow1.mp3" id="meow1"></audio>
+        <audio src="sounds/meow2.mp3" id="meow2"></audio>
+        <audio src="sounds/click.mp3" preload="auto" id="click" ></audio>
+        <audio src="sounds/pour.mp3" id="pour" preload="auto" loop></audio>
+        <audio src="sounds/order.mp3" id="order" preload="auto"></audio>
+
+        <div id="loading" class="screenState">
+            <p class="tap-text">Tap to continue</p>
+            <div id="logo">
+                 <p class="tagline">" Your Daily cup of Hope "</p>
+        </div>
+           
+            </div>
+            
+           
+        <div id="main">
+            
+            <div class="stage" id="stage">
+                <div class="top_spacer" id="spacer1">
+                    <span id="day_today">Day</span>
+                    <span id="date_today">Date</span>
+
+                </div>
+                <div class="bot_spacer" id="spacer2">
+                    <h1>cHOPEe</h1>
+                </div>
+                <div id="coffee_empty" class="screenState">
+                    <h1 id="currentScreenState"></h1>
+                    <p id="check">Check your Cup of Hope every day</p>
+                    <div id="cup">
+                       <div id="cup_content">
+                        <div id="cup_content_display"></div>
+                       
+                        <div class="cup_handle" id="handle"></div>
+                        <div id="quote_container">
+                                <p id="quote" ></p>
+                        </div>
+                       </div>
+                    </div>
+                    <div class="hand-container">
+                        <div id="hand">
+                            <div class="paws" id="paws">
+                                <div class="finger"></div>
+                                <div class="finger" id="middle"></div>
+                                <div class="finger"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div id="prep_coffee" class="screenState">
+                    <div class="upper-prep">
+                        <div id="coffee-flow" >
+                            
+                        </div>
+                        <div id="letter-flow"></div>
+                    </div>
+                    <div class="lower-prep">
+                        
+                        <div id="cup-prep">
+                            
+                            <div class="line"></div>
+                            <div class="cup-handle-prep">
+                                <div class="cup-handle-inside"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div id="return_coffee" class="screenState"></div>
+                <div id="coffee_ready" class="screenState"></div>
+                <div id="quote_reveal" class="screenState"></div>
+            </div>
+            
+
+        </div>
+
+
+    </main>
+    
+    <script src="script.js" type="module">
+        
+    </script>
+</body>
+</html>
