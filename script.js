@@ -427,11 +427,16 @@ const ZoomOut =()=>{
 
 window.addEventListener('load', async ()=>{
     
-    loadingScreen.style.pointerEvents = 'none';
+    const tapText = document.getElementById('tapText');
     
+    loadingScreen.style.pointerEvents = 'none';
+    tapText.textContent = "Loading...";
+    
+
     await checkLocalStorage();
     if (quotesFetched){
         loadingScreen.style.pointerEvents = 'auto';
+        tapText.textContent = "Tap to Continue";
         stateMachine(STATES.LOADING);
     }
 })
