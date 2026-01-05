@@ -128,6 +128,10 @@ main{
 }
 
 /*Screen States */
+.screenState{
+    display: none;
+}
+
 #loading{
     height: 100%;
     width: 100%;
